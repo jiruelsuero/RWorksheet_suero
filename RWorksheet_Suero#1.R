@@ -21,7 +21,6 @@ age
   new_age
 #4Sort the values for age.Write the R code and its output.
   sorted <-sort(age)
-  git config --global user.email "you@example.com"
-  git config --global user.name "Your Name"
+ 
   
    
