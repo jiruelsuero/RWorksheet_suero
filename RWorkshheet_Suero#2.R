@@ -171,26 +171,26 @@ exceldata[[3]]
 View(exceldata)
 
 #9.b
-dim_data <- dim(exceldata)
-dim_data
+dims_data <- dim(exceldata)
+dims_data
 #Output the output is 428 rows and 24 columns
 
 #9.c
 colnames(exceldata)
-select_cols <- exceldata[,c("country", "neighbourhood", "price", "stars", "accommodation_type", "rating")]
-View(select_cols)
+select_coloums <- exceldata[,c("country", "neighbourhood", "price", "stars", "accommodation_type", "rating")]
+View(select_coloums)
 
 #9.d
-save(select_cols, file="new.RData")
-View(select_cols)
+save(select_coloums, file="new.RData")
+View(select_coloums)
 
 
 #9.e
 load("new.RData")
-select_cols
+select_coloums
 
-firstSix <- head(select_cols)
-lastSix <- tail(select_cols)
+firstSix <- head(select_coloums)
+lastSix <- tail(select_coloums)
 firstSix
 lastSix
 
