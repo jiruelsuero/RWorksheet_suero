@@ -1,0 +1,8 @@
+#1 a. a. You need to produce a vector that contains the first 11 letters.
+LETTERS[1:11]
+
+# b.Produce a vector that contains the odd numbered letters.
+LETTERS[x=seq(1,26,by=2)]
+
+# c.Produce a vector that contains the vowels
+LETTERS[vowels <-(1)(5)(9)(15)
