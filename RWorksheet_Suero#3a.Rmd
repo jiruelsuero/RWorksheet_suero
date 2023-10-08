@@ -8,38 +8,33 @@ date: "2023-10-04"
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-```{r name, echo = TRUE}
----
-#1 a. a. You need to produce a vector that contains the first 11 letters.
+```{r jiruelpdf, echo = TRUE}
+
+#1 a. 
 LETTERS[1:11]
 
-#Output  "A" "B" "C" "D" "E" "F" "G" "H" "I" "J" "K"
-# b.Produce a vector that contains the odd numbered letters.
+# b.
 LETTERS[x=seq(1,26,by=2)]
 
-#Output "A" "C" "E" "G" "I" "K" "M" "O" "Q" "S" "U" "W" "Y"
-
-# c.Produce a vector that contains the vowels
+# c.
 vowels <-LETTERS[c(1,5,9,15,21)]
 vowels
 
-#Output  "A" "E" "I" "O" "U"
-# d. Produce a vector that contains the last 5 lowercase letters.
+
+# d.
 last_five <-letters[c(22:26)]
 last_five
 
-#Output "v" "w" "x" "y" "z"
-# e. Produce a vector that contains letters between 15 to 24 letters in lowercase.
+
+# e. .
 between_letters <-letters[c(15:24)]
 between_letters
 
-# Output "o" "p" "q" "r" "s" "t" "u" "v" "w" "x"
 # 2 a. 
 
 city <-c("Tuguegarao City","Manila","Iloilo City","Tacloban","Samal Island","Davao City")
 city
 
-#Output "Tuguegarao City" "Manila"          "Iloilo City"     "Tacloban"        "Samal Island"    "Davao City"  
 #2 b. 
 
 temp <-c(42, 39, 34, 34, 30, 27)
@@ -49,25 +44,13 @@ temp
 city_temp <- data.frame(city, temp)
 city_temp
 
-#Output       city temp
-#1 Tuguegarao City   42
-#2          Manila   39
-#3     Iloilo City   34
-#4        Tacloban   34
-#5    Samal Island   30
-#6      Davao City   27
+
 
 #2 d. 
 names(city_temp) <- c("City","Temperature")
 city_temp
 
-#Output  City Temperature
-#1 Tuguegarao City          42
-#2          Manila          39
-#3     Iloilo City          34
-#4        Tacloban          34
-#5    Samal Island          30
-#6      Davao City          27
+
 
 #2 e. 
 
@@ -81,9 +64,7 @@ str(city_temp)
 twoRows <- city_temp[3:4,]
 twoRows
 
-# Output    City            Temperature
-#3          Iloilo City         34
-#4           Tacloban           34
+
 
 
 #2 g.
@@ -95,66 +76,41 @@ low <- city_temp[which.min(city_temp$Temperature),]
 low
 
 
-#Output  City                 Temperature
-#     1  Tuguegarao City          42
-#low <- city_temp[which.min(city_temp$Temperature),]
-#low
-#        City                 Temperature
-#     6   Davao City              27
-
-
-
-#MATRIX
-
 #2 a.
 matrx <-matrix(c(1:8,11:14),nrow = 3, ncol = 4)
 matrx
 
-#Output
-#     [,1] [,2] [,3] [,4]
-#[1,]    1    4    7   12
-#[2,]    2    5    8   13
-#[3,]    3    6   11   14
 
 #2 b. 
 multiply_matrx <-matrx*2
 multiply_matrx
-#Output 
-#      [,1] [,2] [,3] [,4]
-#[1,]    2    8   14   24
-#[2,]    4   10   16   26
-#[3,]    6   12   22   28
+
 #2 c.
 
 rowtwooo <- multiply_matrx[2,]
 rowtwooo
 
-#Output 4 10 16 26 
+
 #2 d.
 twocols_and_rows <- multiply_matrx[c(1,2),c(3,4)]
 twocols_and_rows
 
-#Output [,1] [,2]
-#[1,]   14    24
-#[2,]   16    26
+
 #2 e. 
 
 twocols_onerow <- multiply_matrx[3,c(2,3)]
 twocols_onerow
-#Output 12 22
+
 
 #2 f.
 four_col <- multiply_matrx[,4]
 four_col
-#Output  24 26 28
+
 #2 g. 
 dimnames( multiply_matrx) <- list(c("isa", "dalawa", "tatlo"), c("uno", "dos", "tres", "quatro"))
 multiply_matrx 
 
-#Output     uno dos tres quatro
-#isa      2   8   14     24
-#dalawa   4  10   16     26
-#tatlo    6  12   22     28
+
 
 #2 h.
 
@@ -162,13 +118,6 @@ matrx
 dim(matrx) <- c(6,2)
 matrx
 
-#Output   [,1] [,2]
-#[1,]    1    7
-#[2,]    2    8
-#[3,]    3   11
-#[4,]    4   12
-#[5,]    5   13
-#[6,]    6   14
 
 #3 a.
 vValues <- c(1, 2, 3, 6, 7, 8, 9, 0, 3, 4, 5, 1)
@@ -177,19 +126,6 @@ rep_values <- rep(vValues, each = 2)
 array <- array(rep_values, dim = c(2,4,3))
 array
 
-#Output , , 1
-
-#     [,1] [,2] [,3] [,4]
-#[1,]    1    2    3    6
-#[2,]    1    2    3    6
-#, , 2
-#     [,1] [,2] [,3] [,4]
-#[1,]    7    8    9    0
-#[2,]    7    8    9    0
-#, , 3
-#     [,1] [,2] [,3] [,4]
-#[1,]    3    4    5    1
-#[2,]    3    4    5    1
 
 
 
@@ -205,20 +141,6 @@ c("1st-Dimensional Array","2nd-Dimensional Array","3rd-Dimensional Array")# dim 
 )
 
 array
-
-
-#Output , , 1st-Dimensional Array
-#  A B C D
-#a 1 2 3 6
-#b 1 2 3 6
-#, , 2nd-Dimensional Array
-#  A B C D
-#a 7 8 9 0
-#b 7 8 9 0
-#, , 3rd-Dimensional Array
-#  A B C D
-#a 3 4 5 1
-#b 3 4 5 1
 
 
 ```
