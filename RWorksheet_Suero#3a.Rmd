@@ -128,8 +128,8 @@ twocols_and_rows <- multiply_matrx[c(1,2),c(3,4)]
 twocols_and_rows
 
 #Output [,1] [,2]
-#[1,]   28   48
-#[2,]   32   52
+#[1,]   14    24
+#[2,]   16    26
 #2 e. 
 
 twocols_onerow <- multiply_matrx[3,c(2,3)]
