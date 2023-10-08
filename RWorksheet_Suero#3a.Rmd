@@ -1,7 +1,14 @@
 ---
-output:
-  pdf_document: default
-  html_document: default
+title: "RWorksheet_Suero#3a."
+output: pdf_document
+date: "2023-10-04"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r name, echo = TRUE}
 ---
 #1 a. a. You need to produce a vector that contains the first 11 letters.
 LETTERS[1:11]
@@ -212,3 +219,6 @@ array
 #  A B C D
 #a 3 4 5 1
 #b 3 4 5 1
+
+
+```
