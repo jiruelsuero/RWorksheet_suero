@@ -1,3 +1,8 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
 #1 a. a. You need to produce a vector that contains the first 11 letters.
 LETTERS[1:11]
 
@@ -117,7 +122,7 @@ multiply_matrx
 rowtwooo <- multiply_matrx[2,]
 rowtwooo
 
-#Output 8 20 32 52
+#Output 4 10 16 26 
 #2 d.
 twocols_and_rows <- multiply_matrx[c(1,2),c(3,4)]
 twocols_and_rows
