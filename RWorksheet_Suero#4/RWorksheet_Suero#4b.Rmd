@@ -1,0 +1,124 @@
+---
+title: "RWorksheet_Suero#4b"
+author: "Jiruel Suero"
+date: "2023-11-02"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+#1.
+
+vectorA <- c(1,2,3,4,5)
+
+matrix_A <- matrix(0,nrow = 5, ncol =5)
+
+for (j in 1:5)
+  for (k in 1:5)
+  {
+    matrix_A[j,k] <- abs (vectorA[j] - vectorA[k])
+  }
+
+matrix_A
+
+# 2. 
+for (j in 1:5) {
+  cat(paste0("\"", rep("*", j), "\""), "\n")
+}
+
+#3. 
+To be continue
+
+#4a. 
+write.csv(HOUSEHOLD_DATA, file = "HOUSEHOLD_DATA.csv")
+imported<- read.csv("HOUSEHOLD_DATA.csv")
+imported
+importedx<-head(HOUSEHOLD_DATA, 6)
+importedx
+
+#4b.
+imported$Gender <- as.factor(imported$Gender)
+imported$Gender <- factor(imported$Gender, levels = c("Male", "Female"))
+imported <- read.csv("HOUSEHOLD_DATA.csv")
+importedx
+men <- subset(imported, Gender == "Male")
+women <- subset(imported, Gender == "Female")
+
+print(nrow(men)) 
+print(nrow(women))
+#5a.
+
+data_X <- c(Food = 60, Electricity = 10, Savings = 5, Miscellaneous = 25)
+
+percentages <- paste(round(100 * data_X / sum(data_X), 1), "%", sep = "")
+
+pie(data_X, labels = paste(names(data_X), " (", percentages, ")", sep = ""), col = rainbow(length(data_X)), main = "Expense Distribution")
+
+legend("topright", names(data_X), cex = 0.8, fill = rainbow(length(data_X)))
+
+#6a.
+
+
+data(iris)
+str(iris)
+
+#6b.
+
+meanIris <- c(mean(iris$Sepal.Length), mean(iris$Sepal.Width), mean(iris$Petal.Length), mean(iris$Petal.Width))
+meanIris
+
+
+
+
+meanSepalLength <- mean(iris$Sepal.Length)
+meanSepalWidth <- mean(iris$Sepal.Width)
+meanPetalLength <- mean(iris$Petal.Length)
+meanPetalWidth <- mean(iris$Petal.Width)
+
+meanIris <- data.frame(Sepal_Length = meanSepalLength,
+                        Sepal_Width = meanSepalWidth,
+                        Petal_Length = meanPetalLength,
+                        Petal_Width = meanPetalWidth)
+meanIris
+
+
+#6c. 
+
+speciesCount <- table(iris$Species)
+pie(speciesCount, labels = speciesCount, col = rainbow(length(speciesCount)), main = "Species Distribution")
+legend("topright", names(speciesCount), cex = 0.8, fill = rainbow(length(speciesCount)))
+
+#6d.
+
+setosaSubset <- subset(iris, Species == "setosa")
+versicolorSubset <- subset(iris, Species == "versicolor")
+virginicaSubset <- subset(iris, Species == "virginica")
+
+
+tail(setosaSubset, 6)
+tail(versicolorSubset, 6)
+tail(virginicaSubset, 6)
+
+#6e. 
+
+
+iris$Species <- as.factor(iris$Species)
+
+# Create a scatterplot
+plot(
+  Sepal.Length ~ Sepal.Width,
+  data = iris,
+  pch = as.integer(iris$Species),  # Use different pch symbols for each species
+  col = as.integer(iris$Species),  # Use different colors for each species
+  xlab = "Sepal Length",
+  ylab = "Sepal Width",
+  main = "Iris Dataset",
+  sub = "Sepal width and length"
+)
+
+To be continue
+
