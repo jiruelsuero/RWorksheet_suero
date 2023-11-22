@@ -1,0 +1,50 @@
+---
+title: "RWorksheet_Suero"
+author: "Jiruel Suero BSIT 2-C"
+date: "2023-11-22"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+1.
+
+a.
+```{r}
+mpg <- read.csv(file = "mpg.csv", header = T, sep = ",")
+mpg
+
+```
+
+b.
+```{r}
+mpgVar <- names(sapply(mpg, function(x) is.factor(x) || is.character(x)))
+mpgVar
+
+```
+
+c.
+```{r}
+is_cont <- sapply(mpg, is.numeric)
+cont_vars <- names(mpg)[is_cont]
+cont_vars
+```
+
+2.
+
+a.
+
+```{r}
+library(dplyr)
+
+manufacturers_unique_models <- mpg %>%
+  group_by(manufacturer) %>%
+  summarize(unique_models = n_distinct(model))
+
+print(manufacturers_unique_models)
+
+
+```
