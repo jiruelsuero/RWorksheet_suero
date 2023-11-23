@@ -21,10 +21,11 @@ mpg
 
 b.
 ```{r}
-mpgVar <- names(sapply(mpg, function(x) is.factor(x) || is.character(x)))
-mpgVar
-
+is_cont <- sapply(mpg, is.character)
+cont_vars <- names(mpg)[is_cont]
+cont_vars
 ```
+
 
 c.
 ```{r}
@@ -34,17 +35,118 @@ cont_vars
 ```
 
 2.
-
-a.
-
 ```{r}
 library(dplyr)
 
-manufacturers_unique_models <- mpg %>%
-  group_by(manufacturer) %>%
-  summarize(unique_models = n_distinct(model))
 
-print(manufacturers_unique_models)
+MostModels <- summarise(group_by(mpg, manufacturer), numModels = n_distinct(model))
+MostModels <- arrange(MostModels, desc(numModels))
+MostModels <- head(MostModels, 1)
 
 
+MostVariations <- summarise(group_by(mpg, model), numVariations = n())
+MostVariations <- arrange(MostVariations, desc(numVariations))
+MostVariations <- head(MostVariations, 1)
+
+
+cat("Manufacturer with the most models: ", MostModels$manufacturer, "with ", MostModels$numModels, " models \n")
+cat("Model with the most variations: ", MostVariations$model, " with ", MostVariations$numVariations, " variations \n")
+
+
+
+```
+
+
+a.
+```{r}
+library(dplyr)
+
+UniqueModels <- summarize(group_by(mpg, manufacturer), unique_models = unique(model))
+
+print(UniqueModels)
+```
+
+b.
+```{r}
+plot(manufacturers_unique_models$unique_models,
+     names.arg = manufacturers_unique_models$manufacturer,
+     main = "Number of Unique Models by Manufacturer",
+     xlab = "Manufacturer",
+     ylab = "Number of Unique Models",
+     col = "skyblue",
+     border = "black",
+     las = 2,
+     ylim = c(0, max(manufacturers_unique_models$unique_models) + 1))
+
+
+
+
+
+```
+
+
+```{r}
+library(ggplot2)
+
+
+ggplot(manufacturers_unique_models, aes(x = manufacturer, y = unique_models)) +
+  geom_bar(stat = "identity", fill = "red", color = "black") +
+  labs(title = "Number of Unique Models by Manufacturer",
+       x = "Manufacturer",
+       y = "Number of Unique Models") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+```
+
+2.1
+
+```{r}
+library(ggplot2)
+
+ggplot(mpg, aes(x = manufacturer, fill = model)) +
+  geom_bar() +
+  labs(title = "Relationship of Model and Manufacturer",
+       x = "Manufacturer",
+       y = "Count",
+       fill = "Model") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+
+
+```
+
+a.
+```{r}
+ggplot(mpg, aes(model, manufacturer)) + geom_point()
+
+
+#The "model" variable is represented by the x-axis. The variable "manufacturer" is represented by the y-axis.Every point corresponds to a unique combination of a car model and its manufacturer.
+
+
+#To add points to the plot, utilize the geom_point() method. You will see a point for every combination of model and manufacturer because there are two categorical variables (model and manufacturer). The points are dispersed throughout the plot.
+
+```
+
+b.
+```{r}
+ggplot(mpg,aes(x = model, y = manufacturer,color = class)) + geom_point()
+
+# to be continue
+
+```
+
+3.
+
+```{r}
+
+
+```
+
+4.Using the pipe (%>%), group the model and get the number of cars per model. Show codes and its result
+
+
+```{r}
+
+cars_summary_spread <- carsSummary %>%
+ spread(make, total_cars_made)
 ```
